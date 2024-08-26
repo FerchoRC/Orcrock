@@ -1,0 +1,9 @@
+body{
+    display: grid;
+    height: 100vh;
+    overflow: hidden;
+    /* background: black; */
+}
+#game{
+    border: 1px solid white;
+}
