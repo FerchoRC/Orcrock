@@ -1,0 +1,45 @@
+Pociones:
+
+    Poción de Vida
+        Descripción: Restaura un porcentaje de la salud del jugador al ser recogida.
+        Efecto: Cura al jugador inmediatamente.
+
+    Poción de Fuego
+        Descripción: Una poción ardiente que incrementa la velocidad y el peso de la bola, aumentando su poder destructivo.
+        Efecto: La bola se vuelve más rápida, aumenta su gravedad y causa más daño por impacto.
+
+    Poción Oscura
+        Descripción: Una poción maldita que aumenta el peso de la bola, reduciendo su rebote y efectividad.
+        Efecto: La bola se vuelve más pesada, limitando sus rebotes y reduciendo su alcance.
+
+    Poción de Congelamiento
+        Descripción: Esta poción libera una energía helada, capaz de congelar a los enemigos en su lugar.
+        Efecto: Congela a los enemigos durante unos segundos, dejándolos vulnerables.
+
+Armas:
+
+    Espada de Hierro
+        Descripción: Una espada robusta que aumenta significativamente el daño de la bola.
+        Efecto: Añade +3 de daño al impacto de la bola.
+
+    Daga
+        Descripción: Ligera y afilada, mejora moderadamente el daño.
+        Efecto: Añade +1 de daño al impacto de la bola.
+
+    Maza
+        Descripción: Un arma pesada que incrementa la capacidad de daño de la bola.
+        Efecto: Añade +2 de daño al impacto de la bola.
+
+Grimorios:
+
+    Grimorio Básico
+        Descripción: Un libro de conocimientos elementales que ayuda a adquirir más experiencia.
+        Efecto: Da una pequeña cantidad de experiencia para ayudar al jugador a subir de nivel.
+
+    Grimorio Mágico
+        Descripción: Un libro mágico que otorga al jugador la capacidad de subir un nivel.
+        Efecto: Sube un nivel al jugador, duplicando la bola.
+
+    Grimorio Arcano
+        Descripción: Un poderoso tomo que incrementa drásticamente el nivel del jugador.
+        Efecto: Sube 3 niveles al jugador, multiplicando la bola por el nivel alcanzado (e.g., 3 bolas si es nivel 3).
