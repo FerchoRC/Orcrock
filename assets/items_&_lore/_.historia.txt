@@ -1,0 +1,30 @@
+---
+
+LORE
+
+En las tierras medievales de **Drakgor**, los orcos son despreciados como seres salvajes y sin futuro. 
+Pero **Thargok**, un orco guerrero con una ambición imparable, sueña con descubrir los secretos de los legendarios 
+**Anillos Perdidos de Drakgor**, joyas que conceden un poder inmenso a quien las posea.
+Impulsado por su deseo de demostrar que los orcos son más que bestias, Thargok emprende un peligroso viaje. 
+Enfrentará criaturas míticas, magos poderosos y bestias salvajes en su búsqueda de 
+los anillos y del poder que cambiará su destino y el de su raza.
+
+
+NIVEL 1 - CAMPAMENTO ORCO
+
+Ambientado en las afueras de la tribu de Thargok, al derrotar a los enemigos de las afueras del campamento,
+obtiene el primer anillo, EL ANILLO ORCO
+
+NIVEL 2 - DESIERTO FANTASMA
+
+Ambientado en un desolado desierto, Thargok recibe su segundo anillo, el ANILLO FANTASMA al completar el nivel
+
+NIVEL 3 - ARENA GRIEGA
+
+Ambientado en el campo de batalla contra otros luchadores valientes como Thargok, al derrotarlos recibe el tercer anillo,
+el ANILLO GRIEGO
+
+NIVEL 4 - FORTALEZA CALAVERA
+
+Ambientado en el castillo de los esqueletos, donde hay pozos de fuego y enemigos esqueleticos, al derrotar al rey de los
+esqueletos, Thargok recibe el ultimo anillo, el ANILLO ESQUELETO, y completa su aventura volviendo victorioso a su tribu
