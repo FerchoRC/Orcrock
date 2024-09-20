@@ -39,7 +39,7 @@ export class Game extends Phaser.Scene{
 
         this.load.image(
             'pillar',
-            'assets/pillar.png',
+            'assets/pillar2.png',
         )
         
     }
@@ -67,8 +67,10 @@ export class Game extends Phaser.Scene{
         .setScale(1)
 
         // pilar
-        this.pillar = this.physics.add.image(500,200,'pillar')
-        this.pillar.body.allowGravity = false
+        this.pillar = this.physics.add.staticGroup()
+        this.pillar.create(780,750,'pillar').setScale(1.8).refreshBody()
+        this.pillar.create(1020,750,'pillar').setScale(1.8).refreshBody()
+        this.pillar.create(1250,750,'pillar').setScale(1.8).refreshBody()
 
         //Bola
         this.ball = this.physics.add.image(1000, 280, 'ball').setDisplaySize(120,120)
