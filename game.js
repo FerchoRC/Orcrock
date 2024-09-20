@@ -30,7 +30,16 @@ export class Game extends Phaser.Scene{
         this.load.image(
             'bubble',
             'assets/Bubble.png',
-            {frameWidth: 8, frameHeight: 8}
+        )
+
+        this.load.image(
+            'ball',
+            'assets/Ball.png',
+        )
+
+        this.load.image(
+            'pillar',
+            'assets/pillar.png',
         )
         
     }
@@ -57,73 +66,87 @@ export class Game extends Phaser.Scene{
         .setOrigin(0,1)
         .setScale(1)
 
-        //Obstaculos
-        //fila 1
-        this.add.tileSprite(780,400,8,8,'bubble').setScale(2.5)
-        this.add.tileSprite(810,400,8,8,'bubble').setScale(2.5)
-        this.add.tileSprite(840,400,8,8,'bubble').setScale(2.5)
-        this.add.tileSprite(795,380,8,8,'bubble').setScale(2.5)
-        this.add.tileSprite(825,380,8,8,'bubble').setScale(2.5)
-        
-        this.add.tileSprite(995,380,8,8,'bubble').setScale(2.5)
-        this.add.tileSprite(1025,380,8,8,'bubble').setScale(2.5)
-        this.add.tileSprite(980,400,8,8,'bubble').setScale(2.5)
-        this.add.tileSprite(1010,400,8,8,'bubble').setScale(2.5)
-        this.add.tileSprite(1040,400,8,8,'bubble').setScale(2.5)
+        // pilar
+        this.pillar = this.physics.add.image(500,200,'pillar')
+        this.pillar.body.allowGravity = false
 
-        this.add.tileSprite(1180,400,8,8,'bubble').setScale(2.5)
-        this.add.tileSprite(1210,400,8,8,'bubble').setScale(2.5)
-        this.add.tileSprite(1240,400,8,8,'bubble').setScale(2.5)
-        this.add.tileSprite(1195,380,8,8,'bubble').setScale(2.5)
-        this.add.tileSprite(1225,380,8,8,'bubble').setScale(2.5)
+        //Bola
+        this.ball = this.physics.add.image(1000, 280, 'ball').setDisplaySize(120,120)
+        this.ball.setSize(200,200)
+        this.ball.setOffset(400,340)
+        //this.ball.body.allowGravity = false;
+
+        //Obstaculos
+        this.bubble = this.physics.add.staticGroup()
+        this.physics.add.collider(this.ball, this.bubble,null)
+        this.ball.setBounce(1)
+        //fila 1
+        this.bubble.create(780,400,'bubble').setScale(2.5).refreshBody();
+        this.bubble.create(810,400,'bubble').setScale(2.5).refreshBody();
+        this.bubble.create(840,400,'bubble').setScale(2.5).refreshBody();
+        this.bubble.create(795,380,'bubble').setScale(2.5).refreshBody();
+        this.bubble.create(825,380,'bubble').setScale(2.5).refreshBody();
+        
+        this.bubble.create(995,380,'bubble').setScale(2.5).refreshBody();
+        this.bubble.create(1025,380,'bubble').setScale(2.5).refreshBody();
+        this.bubble.create(980,400,'bubble').setScale(2.5).refreshBody();
+        this.bubble.create(1010,400,'bubble').setScale(2.5).refreshBody();
+        this.bubble.create(1040,400,'bubble').setScale(2.5).refreshBody();
+
+        this.bubble.create(1180,400,'bubble').setScale(2.5).refreshBody()
+        this.bubble.create(1210,400,'bubble').setScale(2.5).refreshBody()
+        this.bubble.create(1240,400,'bubble').setScale(2.5).refreshBody()
+        this.bubble.create(1195,380,'bubble').setScale(2.5).refreshBody()
+        this.bubble.create(1225,380,'bubble').setScale(2.5).refreshBody()
+
         
         //fila 2
-        this.add.tileSprite(840,500,8,8,'bubble').setScale(2.5)
-        this.add.tileSprite(870,500,8,8,'bubble').setScale(2.5)
-        this.add.tileSprite(825,520,8,8,'bubble').setScale(2.5)
-        this.add.tileSprite(855,520,8,8,'bubble').setScale(2.5)
-        this.add.tileSprite(885,520,8,8,'bubble').setScale(2.5)
-
-        this.add.tileSprite(1040,500,8,8,'bubble').setScale(2.5)
-        this.add.tileSprite(1070,500,8,8,'bubble').setScale(2.5)
-        this.add.tileSprite(1025,520,8,8,'bubble').setScale(2.5)
-        this.add.tileSprite(1055,520,8,8,'bubble').setScale(2.5)
-        this.add.tileSprite(1085,520,8,8,'bubble').setScale(2.5)
-
-        this.add.tileSprite(1240,500,8,8,'bubble').setScale(2.5)
-        this.add.tileSprite(1270,500,8,8,'bubble').setScale(2.5)
-        this.add.tileSprite(1225,520,8,8,'bubble').setScale(2.5)
-        this.add.tileSprite(1255,520,8,8,'bubble').setScale(2.5)
-        this.add.tileSprite(1285,520,8,8,'bubble').setScale(2.5)
+        this.bubble.create(840,500,'bubble').setScale(2.5).refreshBody()
+        this.bubble.create(870,500,'bubble').setScale(2.5).refreshBody()
+        this.bubble.create(825,520,'bubble').setScale(2.5).refreshBody()
+        this.bubble.create(855,520,'bubble').setScale(2.5).refreshBody()
+        this.bubble.create(885,520,'bubble').setScale(2.5).refreshBody()
+        
+        this.bubble.create(1040,500,'bubble').setScale(2.5).refreshBody()
+        this.bubble.create(1070,500,'bubble').setScale(2.5).refreshBody()
+        this.bubble.create(1025,520,'bubble').setScale(2.5).refreshBody()
+        this.bubble.create(1055,520,'bubble').setScale(2.5).refreshBody()
+        this.bubble.create(1085,520,'bubble').setScale(2.5).refreshBody()
+        
+        this.bubble.create(1240,500,'bubble').setScale(2.5).refreshBody()
+        this.bubble.create(1270,500,'bubble').setScale(2.5).refreshBody()
+        this.bubble.create(1225,520,'bubble').setScale(2.5).refreshBody()
+        this.bubble.create(1255,520,'bubble').setScale(2.5).refreshBody()
+        this.bubble.create(1285,520,'bubble').setScale(2.5).refreshBody()
         
         //fila 3
-        this.add.tileSprite(765,620,8,8,'bubble').setScale(2.5)
-        this.add.tileSprite(745,620,8,8,'bubble').setScale(2.5)
-        this.add.tileSprite(730,640,8,8,'bubble').setScale(2.5)
-        this.add.tileSprite(780,640,8,8,'bubble').setScale(2.5)
-        this.add.tileSprite(745,660,8,8,'bubble').setScale(2.5)
-        this.add.tileSprite(765,660,8,8,'bubble').setScale(2.5)
-
-        this.add.tileSprite(900,620,8,8,'bubble').setScale(2.5)
-        this.add.tileSprite(920,620,8,8,'bubble').setScale(2.5)
-        this.add.tileSprite(885,640,8,8,'bubble').setScale(2.5)
-        this.add.tileSprite(935,640,8,8,'bubble').setScale(2.5)
-        this.add.tileSprite(920,660,8,8,'bubble').setScale(2.5)
-        this.add.tileSprite(900,660,8,8,'bubble').setScale(2.5)
-
-        this.add.tileSprite(1100,620,8,8,'bubble').setScale(2.5)
-        this.add.tileSprite(1120,620,8,8,'bubble').setScale(2.5)
-        this.add.tileSprite(1085,640,8,8,'bubble').setScale(2.5)
-        this.add.tileSprite(1135,640,8,8,'bubble').setScale(2.5)
-        this.add.tileSprite(1120,660,8,8,'bubble').setScale(2.5)
-        this.add.tileSprite(1100,660,8,8,'bubble').setScale(2.5)
-
-        this.add.tileSprite(1300,620,8,8,'bubble').setScale(2.5)
-        this.add.tileSprite(1320,620,8,8,'bubble').setScale(2.5)
-        this.add.tileSprite(1285,640,8,8,'bubble').setScale(2.5)
-        this.add.tileSprite(1335,640,8,8,'bubble').setScale(2.5)
-        this.add.tileSprite(1320,660,8,8,'bubble').setScale(2.5)
-        this.add.tileSprite(1300,660,8,8,'bubble').setScale(2.5)
+        this.bubble.create(765,620,'bubble').setScale(2.5).refreshBody()
+        this.bubble.create(745,620,'bubble').setScale(2.5).refreshBody()
+        this.bubble.create(730,640,'bubble').setScale(2.5).refreshBody()
+        this.bubble.create(780,640,'bubble').setScale(2.5).refreshBody()
+        this.bubble.create(745,660,'bubble').setScale(2.5).refreshBody()
+        this.bubble.create(765,660,'bubble').setScale(2.5).refreshBody()
+        
+        this.bubble.create(900,620,'bubble').setScale(2.5).refreshBody()
+        this.bubble.create(920,620,'bubble').setScale(2.5).refreshBody()
+        this.bubble.create(885,640,'bubble').setScale(2.5).refreshBody()
+        this.bubble.create(935,640,'bubble').setScale(2.5).refreshBody()
+        this.bubble.create(920,660,'bubble').setScale(2.5).refreshBody()
+        this.bubble.create(900,660,'bubble').setScale(2.5).refreshBody()
+        
+        this.bubble.create(1100,620,'bubble').setScale(2.5).refreshBody()
+        this.bubble.create(1120,620,'bubble').setScale(2.5).refreshBody()
+        this.bubble.create(1085,640,'bubble').setScale(2.5).refreshBody()
+        this.bubble.create(1135,640,'bubble').setScale(2.5).refreshBody()
+        this.bubble.create(1120,660,'bubble').setScale(2.5).refreshBody()
+        this.bubble.create(1100,660,'bubble').setScale(2.5).refreshBody()
+        
+        this.bubble.create(1300,620,'bubble').setScale(2.5).refreshBody()
+        this.bubble.create(1320,620,'bubble').setScale(2.5).refreshBody()
+        this.bubble.create(1285,640,'bubble').setScale(2.5).refreshBody()
+        this.bubble.create(1335,640,'bubble').setScale(2.5).refreshBody()
+        this.bubble.create(1320,660,'bubble').setScale(2.5).refreshBody()
+        this.bubble.create(1300,660,'bubble').setScale(2.5).refreshBody()
 
 
     }
