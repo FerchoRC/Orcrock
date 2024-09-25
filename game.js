@@ -1,8 +1,7 @@
-import { Objects } from './objects.js'
 export class Game extends Phaser.Scene{
-
     constructor(){
         super({ key: 'game'});
+        this.selectedObject = null; // Agregar una propiedad para el objeto seleccionado
         this.bubblePosition = [];
         this.bubble = null;
         this.bubble2 = null;
@@ -10,8 +9,19 @@ export class Game extends Phaser.Scene{
         this.line = null
         this.maxLineLength = 300
     }
+
+    init(data) {
+        // Recibir el objeto seleccionado desde la escena de selección
+        this.selectedObject = data.selectedObject;
+    }
+
     preload(){
-        
+
+        // Carga el objeto seleccionado si es necesario
+        if (this.selectedObject) {
+        this.load.image(this.selectedObject, `assets/${this.selectedObject}.png`);
+        }
+
         this.load.image(
             'scene01',
             'assets/Background.png'
@@ -58,6 +68,14 @@ export class Game extends Phaser.Scene{
     }
 
     create(){
+
+       // Mostrar texto de bienvenida
+       this.add.text(100, 100, '¡Bienvenido a Orcrock!', { fontSize: '32px', fill: '#fff' });
+
+       // Aquí se puede usar el objeto seleccionado a gusto
+       if (this.selectedObject) {
+       this.add.image(100, 100, this.selectedObject); // Ejemplo de mostrar el objeto seleccionado
+       }
 
         // Fondo Tablero
         this.add.tileSprite(1010,559,850,700,'table')
