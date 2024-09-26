@@ -1,3 +1,4 @@
+import { SelectionScene } from './SelectionScene.js';
 import { Game } from './game.js';
 
 // configuracion inicial del phaser 
@@ -9,7 +10,7 @@ const config = {
         mode: Phaser.Scale.FIT,
         autoCenter: Phaser.Scale.CENTER_BOTH, // centra la pantalla
     },
-    scene: [Game], // se cargan las escenas del juego
+    scene: [SelectionScene, Game], // Escenas
     physics: {
         default: 'arcade',
         arcade: {
