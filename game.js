@@ -69,6 +69,9 @@ export class Game extends Phaser.Scene{
 
     create(){
 
+       // Iniciar la transición con un fade-in
+       this.cameras.main.fadeIn(1000, 0, 0, 0);
+
        // Mostrar texto de bienvenida
        this.add.text(100, 100, '¡Bienvenido a Orcrock!', { fontSize: '32px', fill: '#fff' });
 
