@@ -1,3 +1,4 @@
+import { Home } from './Home.js';
 import { SelectionScene } from './SelectionScene.js';
 import { Game } from './game.js';
 
@@ -10,7 +11,10 @@ const config = {
         mode: Phaser.Scale.FIT,
         autoCenter: Phaser.Scale.CENTER_BOTH, // centra la pantalla
     },
-    scene: [SelectionScene, Game], // Escenas
+    scene: [Home, SelectionScene, Game], // Escenas
+    audio: {
+        disableWebAudio: false, noAudio: false, // Habilita el sistema de audio de Phaser
+    },
     physics: {
         default: 'arcade',
         arcade: {

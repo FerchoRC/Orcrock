@@ -39,6 +39,9 @@ export class SelectionScene extends Phaser.Scene {
 
     create() {
 
+         // Iniciar la transición con un fade-in
+       this.cameras.main.fadeIn(1000, 0, 0, 0);
+
         console.log("Se está creando la escena");
         this.add.image(400, 900, 'background'); // Añadir el fondo
 
