@@ -10,7 +10,7 @@ export class Home extends Phaser.Scene {
         // Cargar la imagen de fondo
         this.load.image(
             'home',
-            'assets/pantalla_inicio.png'
+            'assets/home.png'
         )
 
         this.load.audio('backgroundMusic', 'assets/music.ogg');
@@ -22,11 +22,13 @@ export class Home extends Phaser.Scene {
     }
 
     create() {
-        
+        // Iniciar la transición con un fade-in
+       this.cameras.main.fadeIn(1000, 0, 0, 0);
+
 
          // Reproducir la música de fondo y hacer que no se detenga al cambiar de escena
          this.music = this.sound.add('backgroundMusic', {
-            volume: 5,
+            volume: 0,
             loop: true // Repetir la música en bucle
         });
 
@@ -68,7 +70,7 @@ export class Home extends Phaser.Scene {
             console.log('Hitbox 2 clickeada');
             this.cameras.main.fadeOut(1000, 0, 0, 0); // Iniciar fade
         this.cameras.main.once('camerafadeoutcomplete', () => {
-            this.scene.start('SelectionScene');
+            this.scene.start('Options');
         });
     });
 
@@ -76,7 +78,7 @@ export class Home extends Phaser.Scene {
             console.log('Hitbox 3 clickeada');
             this.cameras.main.fadeOut(1000, 0, 0, 0); // Iniciar fade
         this.cameras.main.once('camerafadeoutcomplete', () => {
-            this.scene.start('SelectionScene');
+            this.scene.start('Credits');
         });
     });
     }
