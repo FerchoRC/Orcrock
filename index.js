@@ -3,6 +3,7 @@ import { SelectionScene } from './SelectionScene.js'
 import { Game } from './levels/scenes/game.js';
 import { Game2 } from './levels/scenes/game2.js';
 import { Game4 } from './levels/scenes/game4.js';
+import { Game3 } from './levels/scenes/game3.js';
 
 // configuracion inicial del phaser 
 const config = {
@@ -13,7 +14,7 @@ const config = {
         mode: Phaser.Scale.FIT,
         autoCenter: Phaser.Scale.CENTER_BOTH, // centra la pantalla
     },
-    scene: [Game4], // Escenas
+    scene: [Game3], // Escenas
     audio: {
         disableWebAudio: false, noAudio: false, // Habilita el sistema de audio de Phaser
     },
