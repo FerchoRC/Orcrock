@@ -59,6 +59,13 @@ export class Game extends Phaser.Scene{
             'assets/demo.png',
             {frameWidth: 16, frameHeight: 16}
         )
+
+        this.load.image('inventario', 'assets/inventory.png');
+
+        this.load.image('stats', 'assets/stats.png');
+
+        this.load.image('layout1', 'assets/level1layout.png');
+
         preload(this)
 
     }
@@ -71,6 +78,17 @@ export class Game extends Phaser.Scene{
        // Mostrar texto de bienvenida
        this.add.text(100, 100, '¡Bienvenido a Orcrock!', { fontSize: '32px', fill: '#fff' });
 
+       this.add.image(250, 420, 'inventario').setScale(0.5); // Puedes ajustar la escala si lo deseas
+
+       this.add.image(250, 700, 'stats').setScale(1.0); // Puedes ajustar la escala si lo deseas
+
+       this.add.image(1680, 500, 'layout1').setScale(1.0); // Puedes ajustar la escala si lo deseas
+       
+       // Mostrar el objeto seleccionado en el juego
+         if (this.selectedObject) {
+            this.add.image(85, 340, this.selectedObject).setScale(0.7); // Posiciona y escala según necesites
+        }
+
        // Aquí se puede usar el objeto seleccionado a gusto
        if (this.selectedObject) {
        this.add.image(100, 100, this.selectedObject); // Ejemplo de mostrar el objeto seleccionado
@@ -78,6 +96,7 @@ export class Game extends Phaser.Scene{
 
         // Fondo
         background(this,730,780)
+
 
         //Bola
         this.ball = createBall(this, this.initialBallPosition);
