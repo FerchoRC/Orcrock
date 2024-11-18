@@ -30,15 +30,20 @@ export class SelectionScene extends Phaser.Scene {
         const centerX = this.cameras.main.centerX;
         const centerY = this.cameras.main.centerY;
 
-        // Mostrar los objetos
-        const object1 = this.add.image(centerX - 400, centerY, 'daga').setOrigin(0.5).setScale(2).setInteractive();
-        const object2 = this.add.image(centerX, centerY, 'maza').setOrigin(0.5).setScale(1.4).setInteractive();
-        const object3 = this.add.image(centerX + 400, centerY, 'espada').setOrigin(0.5).setScale(1.5).setInteractive();
+        // Variables de desplazamiento
+const offsetX = -120; // Mover hacia la izquierda
+const offsetY = 130;  // Mover hacia abajo
 
-        // Añadir texto debajo de cada objeto
-        this.add.text(centerX - 400, centerY + 100, 'Daga', { fontFamily: 'MedievalSharp', fontSize: '30px', color: '#ffffff', align: 'center' }).setOrigin(0.5);
-        this.add.text(centerX, centerY + 100, 'Maza', { fontFamily: 'MedievalSharp', fontSize: '30px', color: '#ffffff', align: 'center' }).setOrigin(0.5);
-        this.add.text(centerX + 400, centerY + 100, 'Espada', { fontFamily: 'MedievalSharp', fontSize: '30px', color: '#ffffff', align: 'center' }).setOrigin(0.5);
+// Mostrar los objetos con el desplazamiento aplicado
+const object1 = this.add.image(centerX - 400 + offsetX, centerY + offsetY, 'daga').setOrigin(0.5).setScale(1.3).setInteractive();
+const object2 = this.add.image(centerX + -320, centerY + offsetY, 'maza').setOrigin(0.5).setScale(1).setInteractive();
+const object3 = this.add.image(centerX + -5 + offsetX, centerY + offsetY, 'espada').setOrigin(0.5).setScale(0.9).setInteractive();
+
+// Añadir texto debajo de cada objeto con el desplazamiento aplicado
+this.add.text(centerX - 400 + offsetX, centerY + 80 + offsetY, 'Daga', { fontFamily: 'MedievalSharp', fontSize: '30px', color: '#ffffff',stroke: '#000000', strokeThickness: 3, align: 'center' }).setOrigin(0.5);
+this.add.text(centerX + -320, centerY + 80 + offsetY, 'Maza', { fontFamily: 'MedievalSharp', fontSize: '30px', color: '#ffffff',stroke: '#000000', strokeThickness: 3, align: 'center' }).setOrigin(0.5);
+this.add.text(centerX + -120, centerY + 80 + offsetY, 'Espada', { fontFamily: 'MedievalSharp', fontSize: '30px', color: '#ffffff',stroke: '#000000', strokeThickness: 3, align: 'center' }).setOrigin(0.5);
+
 
         // Detectar clics en los objetos y hacer fade antes de cambiar de escena
         object1.on('pointerdown', () => this.selectObject('daga'));
