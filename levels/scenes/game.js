@@ -126,10 +126,12 @@ export class Game extends Phaser.Scene{
 
         //Personajes
         this.orc = createCharacter(this, 'orc', 300, 173, 23, 11)
-        this.slime = createCharacter(this, 'slime', 1500, 173, 23, 10.5)
+        this.slime1 = createCharacter(this, 'slime', 1500, 173, 23, 10.5)
+        this.slime2 = createCharacter(this, 'slime', 1600, 173, 23, 10.5)
+        this.slime3 = createCharacter(this, 'slime', 1400, 173, 23, 10.5)
         
         //suelo
-        tileseat(this, this.ball, [this.orc, this.slime])
+        tileseat(this, this.ball, [this.orc, this.slime1, this.slime2, this.slime3])
 
     }
 
