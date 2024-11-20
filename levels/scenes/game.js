@@ -1,6 +1,7 @@
 import { createBubbles, createColumns } from "../table.js";
 import { preload, tileseat, background } from "../preload.js";
 import { createBall, resetBallPosition, pointer } from "../ball.js";
+import { createCharacter } from "../characters.js";
 
 const positions = [
     { x: 780, y: 400 }, { x: 810, y: 400 }, { x: 840, y: 400 },
@@ -35,6 +36,8 @@ export class Game extends Phaser.Scene{
         this.maxLineLength = 300;
         this.ball = null;
         this.isLaunched = false;
+        this.orc = null;
+        this.slime = null;
     }
 
     init(data) {
@@ -58,6 +61,18 @@ export class Game extends Phaser.Scene{
             'tileseat',
             'assets/demo.png',
             {frameWidth: 16, frameHeight: 16}
+        )
+
+        this.load.spritesheet(
+            'orc',
+            'assets/Orc1/Orc1_idle/orc1_idle_full.png',
+            {frameWidth: 64, frameHeight: 64}
+        )
+
+        this.load.spritesheet(
+            'slime',
+            'assets/slime.png',
+            {frameWidth: 64, frameHeight: 64}
         )
 
         this.load.image('inventario', 'assets/inventory.png');
@@ -105,12 +120,15 @@ export class Game extends Phaser.Scene{
         createColumns(this, this.ball);
         createBubbles(this,this.ball,positions);
 
-        //suelo
-        tileseat(this, this.ball)
-
         //Lanzamiento bola
         pointer(this, this.ball)
 
+        //Personajes
+        this.orc = createCharacter(this, 'orc', 300, 173, 23, 11)
+        this.slime = createCharacter(this, 'slime', 1500, 173, 23, 10.5)
+        
+        //suelo
+        tileseat(this, this.ball, [this.orc, this.slime])
     }
 
     update(){
