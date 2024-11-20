@@ -16,7 +16,7 @@ const config = {
         mode: Phaser.Scale.FIT,
         autoCenter: Phaser.Scale.CENTER_BOTH, // centra la pantalla
     },
-    scene: [  Game, Game2, Game3, Game4], // Escenas
+    scene: [  Home, Options, Credits, SelectionScene, Game, Game2, Game3, Game4], // Escenas
     audio: {
         disableWebAudio: false, noAudio: false, // Habilita el sistema de audio de Phaser
     },
