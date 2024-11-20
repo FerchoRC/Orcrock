@@ -7,7 +7,7 @@ export function preload(scene) {
     scene.load.image('bubble2', 'assets/Bubble3.png');
 }
 
-export function tileseat(scene, ball) {
+export function tileseat(scene, ball, characters) {
     // Crea el tileSprite
     scene.add.tileSprite(0, 210, scene.sys.game.config.width, 16, 'tileseat')
         .setOrigin(0, 1)
@@ -20,8 +20,13 @@ export function tileseat(scene, ball) {
         .setVisible(false)
         .refreshBody();
 
-    // Colisión entre la bola y el suelo
+    // Colisión entre la bola y el suelo y personaje
     scene.physics.add.collider(ball, scene.suelo);
+
+    // Colisiones varias
+    characters.forEach(character => {
+        scene.physics.add.collider(character,scene.suelo);
+    });
 }
 
 export function background(scene,heightSet,widthSet) {
