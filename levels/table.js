@@ -5,6 +5,10 @@ export function createBubbles(scene, ball, positions) {
     }
     scene.bubble = scene.physics.add.staticGroup();
 
+    if (typeof scene.bubblesHit === 'undefined') {
+        scene.bubblesHit = 0; // Si no existe, inicializarlo
+    }
+
     let random = Phaser.Math.Between(0, positions.length - 1);
     let randomPos = positions[random];
 
@@ -71,6 +75,11 @@ export function createColumns(scene, ball) {
 function collision(scene, ball, positions) {
     // Colisión con burbujas normales
     scene.physics.add.collider(ball, scene.bubble, (ball, bubble) => {
+        scene.bubblesHit++;
+
+        // Mostrar el contador en la consola
+        console.log('Burbujas impactadas: ' + scene.bubblesHit);
+        
         bubble.destroy();
     });
 

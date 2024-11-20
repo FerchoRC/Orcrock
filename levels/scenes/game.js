@@ -38,6 +38,7 @@ export class Game extends Phaser.Scene{
         this.isLaunched = false;
         this.orc = null;
         this.slime = null;
+        this.bubblesHit = 0;
     }
 
     init(data) {
@@ -129,6 +130,7 @@ export class Game extends Phaser.Scene{
         
         //suelo
         tileseat(this, this.ball, [this.orc, this.slime])
+
     }
 
     update(){

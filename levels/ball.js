@@ -16,6 +16,11 @@ export function resetBallPosition(ball, initialPosition) {
     ball.setPosition(initialPosition.x, initialPosition.y);
     ball.setVelocity(0, 0);
     ball.isLaunched = false;
+
+    // Reiniciar el contador de burbujas impactadas
+    if (ball.scene && typeof ball.scene.bubblesHit !== 'undefined') {
+        ball.scene.bubblesHit = 0;
+    }
 }
 
 export function aimBall(scene, ball, pointer) {
